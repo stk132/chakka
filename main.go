@@ -24,7 +24,7 @@ var (
 
 func main() {
 	app := kingpin.UsageTemplate(kingpin.CompactUsageTemplate).Version("0.1").Author("stk132")
-
+	kingpin.CommandLine.Help = "fireworq queue and routing setting save, apply cli"
 	switch kingpin.Parse() {
 	case "save":
 		if err := saveQueueData(*saveQueueFile, *from); err != nil {
