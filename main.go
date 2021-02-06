@@ -11,14 +11,14 @@ var (
 	defaultRoutingFile = "./routings.json"
 
 	saveSetting = kingpin.Command("save", "save queue and routing settings")
-	from = saveSetting.Arg("from", "fireworq host").Required().String()
-	saveQueueFile = saveSetting.Arg("queueFile", "queue setting save file").Default(defaultQueueFile).String()
-	saveRoutingFile = saveSetting.Arg("routingFile", "routing setting save file").Default(defaultRoutingFile).String()
+	from = saveSetting.Flag("from", "fireworq host").Required().Short('f').String()
+	saveQueueFile = saveSetting.Flag("queue-file", "queue setting save file").Default(defaultQueueFile).Short('q').String()
+	saveRoutingFile = saveSetting.Flag("routing-file", "routing setting save file").Default(defaultRoutingFile).Short('r').String()
 
 	applySetting = kingpin.Command("apply", "apply queue and routing settings")
-	to = applySetting.Arg("to", "setting apply target fireworq host").Required().String()
-	applyQueueFile = applySetting.Arg("queueFile", "apply queue setting file").Default(defaultQueueFile).String()
-	applyRoutingFile = applySetting.Arg("routingFile", "apply routing setting file").Default(defaultRoutingFile).String()
+	to = applySetting.Flag("to", "setting apply target fireworq host").Required().Short('t').String()
+	applyQueueFile = applySetting.Flag("queueFile", "apply queue setting file").Default(defaultQueueFile).Short('q').String()
+	applyRoutingFile = applySetting.Flag("routingFile", "apply routing setting file").Default(defaultRoutingFile).Short('r').String()
 
 )
 
